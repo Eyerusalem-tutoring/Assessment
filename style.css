@@ -1,0 +1,147 @@
+  @font-face {
+    font-family: 'CMU Serif Roman';
+    font-style: normal;
+    font-weight: normal;
+    src: local('CMU Serif Roman'), url('cmunrm.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'CMU Serif Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('CMU Serif Italic'), url('cmunti.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'CMU Serif Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('CMU Serif Bold'), url('cmunbx.woff') format('woff');
+}
+
+
+@font-face {
+    font-family: 'CMU Serif BoldItalic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('CMU Serif BoldItalic'), url('cmunbi.woff') format('woff');
+}
+*{
+    font-family: CMU Serif Roman;
+}
+.main-container {
+    margin: 20px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+input[type="number"] {
+    width: 80%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+.total {
+    font-weight: bold;
+    text-align: center;
+}
+.section-total {
+    background-color: #f9f9f9;
+}
+.form-header {
+    margin-bottom: 20px;
+}
+.form-header label {
+    display: block;
+    margin-bottom: 10px;
+}
+.form-header input {
+    width: 50%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.header-div {
+    background-color: rgba(207, 207, 207, 0.267);
+    display: flex;
+    margin-bottom: 3vw;
+    align-items: center;
+    justify-content: space-between;
+}
+.header-div img {
+    width: auto;
+    height: 100px;
+}
+.header-div h1 {
+    margin: auto;
+    font-size: 2.5vw;
+    font-weight: normal;
+}
+button{
+    background-color: rgba(76, 228, 76, 0.699);
+    border: solid 1px green;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+button:hover{
+    background-color: rgba(44, 171, 255, 0.699);
+    border: solid 1px rgb(12, 101, 184);
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+@media screen and (min-width: 992px) {
+    .main-container {
+        width: 60%;
+        margin: 20px auto;  
+        background-color: white; 
+        padding: 20px;
+    }
+    body{
+        background-color: rgb(238, 238, 238);;
+    }
+}
+@media screen and (max-width: 768px) {
+    .header-div h1 {
+        margin: auto;
+        padding: 5px;
+        font-size: 4vw;
+        text-align: center;
+        justify-content: center;
+        align-content: center;
+        
+    }
+    h1, h2{
+        font-size: 4vw;
+    }
+}
+#sec-tot{
+    text-align: right;
+}
+.total-score{
+    color: grey;
+}
+.new-body{
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.new-button{
+    margin: 40vh auto;
+}

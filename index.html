@@ -5,255 +5,273 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Assessment Form</title>
-    
 </head>
 <body>
     <div class="main-container">
-    <div class="header-div">
-        <img src="EyerusalemTutoring.jpg" alt="Logo">
-        <h1>Teaching Effectiveness Evaluation Form</h1>
+        <div class="header-div">
+            <img src="EyerusalemTutoring.jpg" alt="Logo">
+            <h1>Teaching Effectiveness Evaluation Form</h1>
+        </div>
+
+        <div class="form-header" id="evaluationForm">
+            <label>
+                Tutor Name:
+                <input type="text" id="tutorName" name="tutorName" required placeholder="Enter tutor name">
+            </label>
+            <label>
+                Evaluator Name:
+                <input list="evaluators" id="evaluatorName" name="evaluatorName" required placeholder="Enter evaluator name">
+                <datalist id="evaluators">
+                    <option value="Eyerusalem Abebaw">
+                    <option value="Surafel Alayou">
+                </datalist>
+            </label>    
+            <label>
+                Date:
+                <input type="date" id="evaluationDate" required name="evaluationDate">
+            </label>
+        </div>
+
+        <!-- Micro Teaching -->
+        <h2>1. MICRO TEACHING (10 min)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>I. Content (25)</th>
+                    <th>Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Coverage of required/expected contents (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="micro-content" required onchange="calculateTotal('micro-content', 'micro-content-total')"></td>
+                </tr>
+                <tr>
+                    <td>Ability to address questions (<b>15</b>)</td>
+                    <td><input type="number" min="0" max="15" class="micro-content" required onchange="calculateTotal('micro-content', 'micro-content-total')"></td>
+                </tr>
+                <tr class="section-total">
+                    <td class="total" id="sec-tot">Total</td>
+                    <td class="total" id="micro-content-total">0</td>
+                </tr>
+                <thead>
+                    <tr>
+                        <th>II. Methodology (25)</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Use of examples and real-life applications (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="micro-methodology" required onchange="calculateTotal('micro-methodology', 'micro-methodology-total')"></td>
+                </tr>
+                <tr>
+                    <td>Effectiveness in explaining difficult concepts (<b>15</b>)</td>
+                    <td><input type="number" min="0" max="15" class="micro-methodology" required onchange="calculateTotal('micro-methodology', 'micro-methodology-total')"></td>
+                </tr>
+                <tr class="section-total">
+                    <td class="total" id="sec-tot">Total</td>
+                    <td class="total" id="micro-methodology-total">0</td>
+                </tr>
+                <thead>
+                    <tr>
+                        <th>III. Language (25)</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Clarity of language and terminologies (<b>15</b>)</td>
+                    <td><input type="number" min="0" max="15" class="micro-language" required onchange="calculateTotal('micro-language', 'micro-language-total')"></td>
+                </tr>
+                <tr>
+                    <td>Proper pronunciation and articulation (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="micro-language" required onchange="calculateTotal('micro-language', 'micro-language-total')"></td>
+                </tr>
+                <tr class="section-total">
+                    <td class="total" id="sec-tot">Total</td>
+                    <td class="total" id="micro-language-total">0</td>
+                </tr>
+                <thead>
+                    <tr>
+                        <th>IV. Time Management (25)</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Effective use of time (<b>15</b>)</td>
+                    <td><input type="number" min="0" max="15" class="micro-time" required onchange="calculateTotal('micro-time', 'micro-time-total')"></td>
+                </tr>
+                <tr>
+                    <td>Balanced pacing of the lesson (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="micro-time" required onchange="calculateTotal('micro-time', 'micro-time-total')"></td>
+                </tr>
+                <tr class="section-total">
+                    <td class="total" id="sec-tot">Total</td>
+                    <td class="total" id="micro-time-total">0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="total-score">Total Score: <span id="micro_teaching_total">0</span> / 100</h2>
+        <br>
+
+        <!-- Home Take -->
+        <h2>3. HOME TAKE (20 min)</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>I. Content (25)</th>
+                    <th>Point</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Coverage:</b> Did the tutor address relevant topics or asked questions thoroughly? (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="home-content" required onchange="calculateTotal('home-content', 'home-content-total')"></td>
+                </tr>
+                <tr>
+                    <td><b>Subject Mastery:</b> Does the tutor demonstrate a strong and accurate understanding of the subject? (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="home-content" required onchange="calculateTotal('home-content', 'home-content-total')"></td>
+                </tr>
+                <tr>
+                    <td><b>Relevance:</b> Are the materials and explanations focused on the key concepts required for the topic? (<b>5</b>)</td>
+                    <td><input type="number" min="0" max="5" class="home-content" required onchange="calculateTotal('home-content', 'home-content-total')"></td>
+                </tr>
+                <tr class="section-total">
+                    <td class="total" id="sec-tot">Total</td>
+                    <td class="total" id="home-content-total">0</td>
+                </tr>
+                <thead>
+                    <tr>
+                        <th>II. Methodology (25)</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><b>Clarity of Explanation:</b> Are the tutor’s explanations clear? (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="home-methodology" required onchange="calculateTotal('home-methodology', 'home-methodology-total')"></td>
+                </tr>
+                <tr>
+                    <td><b>Engagement Strategies:</b> Does the tutor use appropriate methods (e.g., examples, analogies) to keep the learners engaged? (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="home-methodology" required onchange="calculateTotal('home-methodology', 'home-methodology-total')"></td>
+                </tr>
+                <tr>
+                    <td><b>Logical Flow:</b> Are the concepts presented in a coherent and sequential manner? (<b>5</b>)</td>
+                    <td><input type="number" min="0" max="5" class="home-methodology" required onchange="calculateTotal('home-methodology', 'home-methodology-total')"></td>
+                </tr>
+                <tr class="section-total">
+                    <td class="total" id="sec-tot">Total</td>
+                    <td class="total" id="home-methodology-total">0</td>
+                </tr>
+                <thead>
+                    <tr>
+                        <th>III. Language (25)</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><b>Clarity of Communication:</b> Is the tutor’s language precise and easy to understand?  (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="home-language" required onchange="calculateTotal('home-language', 'home-language-total')"></td>
+                </tr>
+                <tr>
+                    <td><b>Use of Technical Terms:</b> Are technical terms used correctly and explained as needed?  (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="home-language" required onchange="calculateTotal('home-language', 'home-language-total')"></td>
+                </tr>
+                <tr>
+                    <td><b>Professional Tone:</b> Does the tutor maintain a professional and approachable tone throughout?  (<b>5</b>)</td>
+                    <td><input type="number" min="0" max="5" class="home-language" required onchange="calculateTotal('home-language', 'home-language-total')"></td>
+                </tr>
+                <tr class="section-total">
+                    <td class="total" id="sec-tot">Total</td>
+                    <td class="total" id="home-language-total">0</td>
+                </tr>
+                <thead>
+                    <tr>
+                        <th>IV. Time Management (25)</th>
+                        <th>Point</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><b>Pacing:</b> Is the tutor able to manage time effectively while covering the planned content? (<b>10</b>)</td>
+                    <td><input type="number" min="0" max="10" class="home-time" required onchange="calculateTotal('home-time', 'home-time-total')"></td>
+                </tr>
+                <tr>
+                    <td><b>Preparation:</b> Does the tutor demonstrate adequate preparation and organization? (<b>15</b>)</td>
+                    <td><input type="number" min="0" max="15" class="home-time" required onchange="calculateTotal('home-time', 'home-time-total')"></td>
+                </tr>
+                <tr class="section-total">
+                    <td class="total" id="sec-tot">Total</td>
+                    <td class="total" id="home-time-total">0</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="total-score">Total Score: <span id="home_take_total">0</span> / 100</h2>
+
+        <div class="agreement-container">
+            <input 
+                type="checkbox" 
+                id="agreement" 
+                name="agreement" 
+                value="I confirm that all the points I provided are correct and free from bias." 
+                required
+            >
+            <label for="agreement">
+                I confirm that all the points I provided are correct and free from bias.
+            </label>
+        </div>
+        <br>
+
+        <button type="button" id="submitButton" onclick="sendMessage()">Submit Evaluation</button>
     </div>
 
-<div class="form-header" id="evaluationForm">
-    <label>
-        Tutor Name:
-        <input type="text" id="tutorName" name="tutorName" required placeholder="Enter tutor name">
-    </label>
-    <label>
-        Evaluator Name:
-        <input list="evaluators" id="evaluatorName" name="evaluatorName" required placeholder="Enter evaluator name">
-        <datalist id="evaluators">
-            <option value="Eyerusalem Abebaw">
-            <option value="Surafel Alayou">
-        </datalist>
-    </label>    
-    <label>
-        Date:
-        <input type="date" id="evaluationDate" required name="evaluationDate">
-    </label>
-</div>
+    <script>
+        // Restrict max value
+        function enforceMaxValue(input) {
+            const maxValue = parseFloat(input.getAttribute('max'));
+            const currentValue = parseFloat(input.value);
 
-<!-- Micro Teaching -->
-<h2>1. MICRO TEACHING (10 min)</h2>
-<table>
-    <thead>
-        <tr>
-            <th>I. Content (25)</th>
-            <th>Point</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Coverage of required/expected contents (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="micro-content" required onchange="calculateTotal('micro-content', 'micro-content-total')"></td>
-        </tr>
-        <tr>
-            <td>Ability to address questions (<b>15</b>)</td>
-            <td><input type="number" min="0" max="15" class="micro-content" required onchange="calculateTotal('micro-content', 'micro-content-total')"></td>
-        </tr>
-        <tr class="section-total">
-            <td class="total" id="sec-tot">Total</td>
-            <td class="total" id="micro-content-total">0</td>
-        </tr>
-        <thead>
-            <tr>
-                <th>II.	Methodology (25)</th>
-                <th>Point</th>
-            </tr>
-        </thead>
-        <tr>
-            <td>Use of examples and real-life applications (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="micro-methodology" required onchange="calculateTotal('micro-methodology', 'micro-methodology-total')"></td>
-        </tr>
-        <tr>
-            <td>Effectiveness in explaining difficult concepts (<b>15</b>)</td>
-            <td><input type="number" min="0" max="15" class="micro-methodology" required onchange="calculateTotal('micro-methodology', 'micro-methodology-total')"></td>
-        </tr>
-        <tr class="section-total">
-            <td class="total" id="sec-tot">Total</td>
-            <td class="total" id="micro-methodology-total">0</td>
-        </tr>
-        <thead>
-            <tr>
-                <th>III. Language (25)</th>
-                <th>Point</th>
-            </tr>
-        </thead>
-        <tr>
-            <td>Clarity of language and terminologies (<b>15</b>)</td>
-            <td><input type="number" min="0" max="15" class="micro-language" required onchange="calculateTotal('micro-language', 'micro-language-total')"></td>
-        </tr>
-        <tr>
-            <td>Proper pronunciation and articulation (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="micro-language" required onchange="calculateTotal('micro-language', 'micro-language-total')"></td>
-        </tr>
-        <tr class="section-total">
-            <td class="total" id="sec-tot">Total</td>
-            <td class="total" id="micro-language-total">0</td>
-        </tr>
-        <thead>
-            <tr>
-                <th>IV.	Time Management (25)</th>
-                <th>Point</th>
-            </tr>
-        </thead>
-        <tr>
-            <td>Effective use of time (<b>15</b>)</td>
-            <td><input type="number" min="0" max="15" class="micro-time" required onchange="calculateTotal('micro-time', 'micro-time-total')"></td>
-        </tr>
-        <tr>
-            <td>Balanced pacing of the lesson (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="micro-time" required onchange="calculateTotal('micro-time', 'micro-time-total')"></td>
-        </tr>
-        <tr class="section-total">
-            <td class="total" id="sec-tot">Total</td>
-            <td class="total" id="micro-time-total">0</td>
-        </tr>
-    </tbody>
-</table>
+            if (currentValue > maxValue) {
+                input.value = maxValue; // Reset to the maximum value
+            }
+        }
 
-<h2 class="total-score">Total Score: <span id="micro_teaching_total">0</span> / 100</h2>
-<br>
+        function calculateTotal(className, totalId) {
+            const inputs = document.querySelectorAll(`.${className}`);
+            let total = 0;
+            inputs.forEach(input => {
+                enforceMaxValue(input); // Ensure the value does not exceed the maximum
+                total += parseFloat(input.value) || 0;
+            });
+            document.getElementById(totalId).textContent = total;
+            updateTotalScore();
+        }
 
-<!-- Home Take -->
-<h2>3. HOME TAKE (20 min)</h2>
-<table>
-    <thead>
-        <tr>
-            <th>I. Content (25)</th>
-            <th>Point</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td><b>Coverage:</b> Did the tutor address relevant topics or asked questions thoroughly? (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="home-content" required onchange="calculateTotal('home-content', 'home-content-total')"></td>
-        </tr>
-        <tr>
-            <td><b>Subject Mastery:</b> Does the tutor demonstrate a strong and accurate understanding of the subject? (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="home-content" required onchange="calculateTotal('home-content', 'home-content-total')"></td>
-        </tr>
-        <tr>
-            <td><b>Relevance:</b> Are the materials and explanations focused on the key concepts required for the topic? (<b>5</b>)</td>
-            <td><input type="number" min="0" max="5" class="home-content" required onchange="calculateTotal('home-content', 'home-content-total')"></td>
-        </tr>
-        <tr class="section-total">
-            <td class="total" id="sec-tot">Total</td>
-            <td class="total" id="home-content-total">0</td>
-        </tr>
-        <thead>
-            <tr>
-                <th>II.	Methodology (25)</th>
-                <th>Point</th>
-            </tr>
-        </thead>
-        <tr>
-            <td><b>Clarity of Explanation:</b> Are the tutor’s explanations clear? (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="home-methodology" required onchange="calculateTotal('home-methodology', 'home-methodology-total')"></td>
-        </tr>
-        <tr>
-            <td><b>Engagement Strategies:</b> Does the tutor use appropriate methods (e.g., examples, analogies) to keep the learners engaged? (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="home-methodology" required onchange="calculateTotal('home-methodology', 'home-methodology-total')"></td>
-        </tr>
-        <tr>
-            <td><b>Logical Flow:</b> Are the concepts presented in a coherent and sequential manner? (<b>5</b>)</td>
-            <td><input type="number" min="0" max="5" class="home-methodology" required onchange="calculateTotal('home-methodology', 'home-methodology-total')"></td>
-        </tr>
-        <tr class="section-total">
-            <td class="total" id="sec-tot">Total</td>
-            <td class="total" id="home-methodology-total">0</td>
-        </tr>
-        <thead>
-            <tr>
-                <th>III. Language (25)</th>
-                <th>Point</th>
-            </tr>
-        </thead>
-        <tr>
-            <td><b>Clarity of Communication:</b> Is the tutor’s language precise and easy to understand?  (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="home-language" required onchange="calculateTotal('home-language', 'home-language-total')"></td>
-        </tr>
-        <tr>
-            <td><b>Use of Technical Terms:</b> Are technical terms used correctly and explained as needed?  (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="home-language" required onchange="calculateTotal('home-language', 'home-language-total')"></td>
-        </tr>
-        <tr>
-            <td><b>Professional Tone:</b> Does the tutor maintain a professional and approachable tone throughout?  (<b>5</b>)</td>
-            <td><input type="number" min="0" max="5" class="home-language" required onchange="calculateTotal('home-language', 'home-language-total')"></td>
-        </tr>
-        <tr class="section-total">
-            <td class="total" id="sec-tot">Total</td>
-            <td class="total" id="home-language-total">0</td>
-        </tr>
-        <thead>
-            <tr>
-                <th>IV.	Time Management (25)</th>
-                <th>Point</th>
-            </tr>
-        </thead>
-        <tr>
-            <td><b>Pacing:</b> Is the tutor able to manage time effectively while covering the planned content? (<b>10</b>)</td>
-            <td><input type="number" min="0" max="10" class="home-time" required onchange="calculateTotal('home-time', 'home-time-total')"></td>
-        </tr>
-        <tr>
-            <td><b>Preparation:</b> Does the tutor demonstrate adequate preparation and organization? (<b>15</b>)</td>
-            <td><input type="number" min="0" max="15" class="home-time" required onchange="calculateTotal('home-time', 'home-time-total')" ></td>
-        </tr>
-        <tr class="section-total">
-            <td class="total" id="sec-tot">Total</td>
-            <td class="total" id="home-time-total">0</td>
-        </tr>
-    </tbody>
-</table>
+        function updateTotalScore() {
+            const microTeaching = 
+            parseFloat(document.getElementById('micro-content-total').textContent) +
+            parseFloat(document.getElementById('micro-methodology-total').textContent) +
+            parseFloat(document.getElementById('micro-language-total').textContent) +
+            parseFloat(document.getElementById('micro-time-total').textContent);
+            
+            const homeTake = 
+            parseFloat(document.getElementById('home-content-total').textContent) +
+            parseFloat(document.getElementById('home-methodology-total').textContent)+
+            parseFloat(document.getElementById('home-language-total').textContent)+
+            parseFloat(document.getElementById('home-time-total').textContent);
+            
+            document.getElementById('micro_teaching_total').textContent = microTeaching;
+            document.getElementById('home_take_total').textContent = homeTake;
+        }
 
-<h2 class="total-score">Total Score: <span id="home_take_total">0</span> / 100</h2>
-
-<div class="agreement-container">
-    <input 
-        type="checkbox" 
-        id="agreement" 
-        name="agreement" 
-        value="I confirm that all the points I provided are correct and free from bias." 
-        required
-    >
-    <label for="agreement">
-        I confirm that all the points I provided are correct and free from bias.
-    </label>
-</div>
-<br>
-
-<button type="button" id="submitButton" onclick="sendMessage()">Submit Evaluation</button>
-</div>
-</body>
-
-<script>
-    function calculateTotal(className, totalId) {
-        const inputs = document.querySelectorAll(`.${className}`);
-        let total = 0;
-        inputs.forEach(input => {
-            total += parseFloat(input.value) || 0;
+        // Add event listeners to all input fields
+        document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.addEventListener('input', function() {
+                enforceMaxValue(this); // Validate the input value
+                calculateTotal(this.className.split(' ')[0], this.className.split(' ')[0] + '-total'); // Recalculate totals
+            });
         });
-        document.getElementById(totalId).textContent = total;
-        updateTotalScore();
-    }
-    
-    function updateTotalScore() {
-        const microTeaching = 
-        parseFloat(document.getElementById('micro-content-total').textContent) +
-        parseFloat(document.getElementById('micro-methodology-total').textContent) +
-        parseFloat(document.getElementById('micro-language-total').textContent) +
-        parseFloat(document.getElementById('micro-time-total').textContent);
-        
-        const homeTake = 
-        parseFloat(document.getElementById('home-content-total').textContent) +
-        parseFloat(document.getElementById('home-methodology-total').textContent)+
-        parseFloat(document.getElementById('home-language-total').textContent)+
-        parseFloat(document.getElementById('home-time-total').textContent);
-        
-        document.getElementById('micro_teaching_total').textContent = microTeaching;
-        document.getElementById('home_take_total').textContent = homeTake;
-    }
-</script>
+    </script>
+</body>
 
 <script src="javascript.js"></script>
 
